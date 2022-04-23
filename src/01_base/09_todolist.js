@@ -17,6 +17,7 @@ export default class App extends Component {
    }
    addHandle=()=>{
     let txt = (this.refs.inputValue.value)
+    this.refs.inputValue.value = "";
     let newList = [...this.state.list];
     let id = Math.random()*10000000;
      newList.push({id:id,value:txt});

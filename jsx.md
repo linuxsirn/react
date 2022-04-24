@@ -45,5 +45,33 @@ bind方法第二个以后的参数可以带参数过去
       __html=this.state.code
   }>  </div>
 ```
+state的更新如果在主线程是异步执行的。在异步的线程，比如timer中是同步执行的
+```
+this.setState({},()=>{
+  这里是setstate更新完成的回调
+})
 
- 
+// 类属性验证
+    static propTypes = {
+        title:kerwinPropTypes.string,
+        leftshow:kerwinPropTypes.bool
+    }
+
+    //默认值
+    static defaultProps = {
+        leftshow:true
+    }  
+````
+  
+
+
+## 非受控组件
+    非受控组件没有内部状态，通过refs 找到DOM 节点对象，然后使用原生的JS 直接修改DOM  
+    比如input 给了vlaue 赋了默认值后，就不能在修改了。其实这个时候value就已经受控了  
+    可以使用defauVlaue 来给非受控的input赋初始值
+
+## 受控组件
+
+比如input 自己把vlaue值和状态绑定到一起。然后监听onChange事件 。使用setstate函数来修改value，同时也就修改了input的值得   
+
+## 父传子 用属性， 子传父用 回调函数
